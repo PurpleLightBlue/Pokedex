@@ -5,7 +5,7 @@ using TrueLayer.Pokedex.Common.Domain.Services;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
+namespace TrueLayer.Pokedex.Tests.IntegrationTests
 {
     public class PokemonServiceIntegrationTests
     {
@@ -15,7 +15,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         [SetUp]
         public void Setup()
         {
-            this.config = ConfigBuilderHelper.InitConfiguration();
+            config = ConfigBuilderHelper.InitConfiguration();
         }
 
 
@@ -23,7 +23,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenAPokemonWithHabitatOfCave_WhenGetTranslationCalled_ThenYodaTranslationReturned()
         {
             //Arrange
-            var translatorApi = new TranslatorApiWrapper(this.config);
+            var translatorApi = new TranslatorApiWrapper(config);
             var mockPokemonDomainService = new PokemonService(translatorApi);
             var pokemon = new Pokemon("onix", "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.", "cave", false);
 
@@ -38,7 +38,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenAPokemonWithHabitatOfSeaButIsLegnedary_WhenGetTranslationCalled_ThenYodaTranslationReturned()
         {
             //Arrange
-            var translatorApi = new TranslatorApiWrapper(this.config);
+            var translatorApi = new TranslatorApiWrapper(config);
             var mockPokemonDomainService = new PokemonService(translatorApi);
             var pokemon = new Pokemon("onix", "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.", "sea", true);
 
@@ -53,7 +53,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenAPokemonWithHabitatOfBeachSnfNotLegendary_WhenGetTranslationCalled_ThenShakespeareTranslationReturned()
         {
             //Arrange
-            var translatorApi = new TranslatorApiWrapper(this.config);
+            var translatorApi = new TranslatorApiWrapper(config);
             var mockPokemonDomainService = new PokemonService(translatorApi);
             var pokemon = new Pokemon("onix", "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.", "beach", false);
 

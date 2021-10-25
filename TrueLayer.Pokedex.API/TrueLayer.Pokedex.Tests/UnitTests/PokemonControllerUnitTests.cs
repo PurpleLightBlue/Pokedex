@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
@@ -11,9 +10,8 @@ using TrueLayer.Pokedex.API.ViewModels;
 using TrueLayer.Pokedex.Common.Domain.Model;
 using TrueLayer.Pokedex.Common.Domain.Services;
 using TrueLayer.Pokedex.Common.Interfaces;
-using TrueLayer.Pokedex.Tests.Utilities;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
+namespace TrueLayer.Pokedex.Tests.UnitTests
 {
     public class PokemonControllerUnitTests
     {
@@ -24,7 +22,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         {
             var myProfile = new AutoMapperProfile();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
-            this.mapper = new Mapper(configuration);
+            mapper = new Mapper(configuration);
         }
 
         [Test]

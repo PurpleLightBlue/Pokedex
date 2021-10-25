@@ -4,7 +4,7 @@ using System.Net;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
+namespace TrueLayer.Pokedex.Tests.IntegrationTests
 {
     public class PokemonApiWrapperIntegrationTests
     {
@@ -12,7 +12,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         [SetUp]
         public void Setup()
         {
-            this.config = ConfigBuilderHelper.InitConfiguration();
+            config = ConfigBuilderHelper.InitConfiguration();
         }
 
 
@@ -20,7 +20,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenValidPokemonName_WhenGetSinglePokemonSpeciesInformationCalled_ThenPokemonReturned()
         {
             //Arrange
-            var pokemonWrapperApi = new PokemonApiWrapper(this.config);
+            var pokemonWrapperApi = new PokemonApiWrapper(config);
             var pokemonName = "pikachu";
             //Act 
             var pokemonDomainModel = pokemonWrapperApi.GetSinglePokemonSpeciesInformation(pokemonName);
@@ -32,7 +32,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenInValidPokemonName_WhenGetSinglePokemonSpeciesInformationCalled_ThenExceptionThrown()
         {
             //Arrange
-            var pokemonWrapperApi = new PokemonApiWrapper(this.config);
+            var pokemonWrapperApi = new PokemonApiWrapper(config);
             var pokemonName = "Frank";
 
             //Act & Assert

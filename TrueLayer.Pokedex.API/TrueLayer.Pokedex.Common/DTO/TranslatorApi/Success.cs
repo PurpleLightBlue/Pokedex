@@ -4,7 +4,4 @@
     {
         public int Total { get; set; }
     }
-
-
-
 }

@@ -35,6 +35,11 @@ namespace TrueLayer.PokeDex.DAL.ApiWrappers
                 throw new ArgumentException($"'{nameof(textToBeTranslated)}' cannot be null or whitespace.", nameof(textToBeTranslated));
             }
 
+            if (string.IsNullOrWhiteSpace(translatorLocation))
+            {
+                throw new ArgumentException($"'{nameof(translatorLocation)}' cannot be null or whitespace.", nameof(translatorLocation));
+            }
+
             textToBeTranslated = Regex.Replace(textToBeTranslated, @"\f|\n|\r", " ");
             textToBeTranslated = Uri.EscapeDataString(textToBeTranslated);
 

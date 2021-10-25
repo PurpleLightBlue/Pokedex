@@ -2,7 +2,7 @@
 using System;
 using TrueLayer.Pokedex.Common.Domain.Model;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
+namespace TrueLayer.Pokedex.Tests.UnitTests
 {
     public class PokemonDomainUnitTests
     {

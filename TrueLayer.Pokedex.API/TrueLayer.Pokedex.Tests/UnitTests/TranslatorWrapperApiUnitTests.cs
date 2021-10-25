@@ -4,7 +4,7 @@ using System;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
+namespace TrueLayer.Pokedex.Tests.UnitTests
 {
     public class TranslatorWrapperApiUnitTests
     {
@@ -12,7 +12,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         [SetUp]
         public void Setup()
         {
-            this.config = ConfigBuilderHelper.InitConfiguration();
+            config = ConfigBuilderHelper.InitConfiguration();
         }
 
 
@@ -21,7 +21,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         [TestCase(null)]
         public void GivenDescriptionIsInvalid_WhenGetYodaTranslationCalled_ExceptionThrown(string description)
         {
-            var repo = new TranslatorApiWrapper(this.config);
+            var repo = new TranslatorApiWrapper(config);
 
             Assert.Throws<ArgumentException>(() => repo.GetYodaTranslation(description));
         }
@@ -32,7 +32,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         public void GivenDescriptionIsInvalid_WhenGetShakespeareTranslationCalled_ExceptionThrown(string description)
         {
             //Arrange
-            var repo = new TranslatorApiWrapper(this.config);
+            var repo = new TranslatorApiWrapper(config);
 
             //Act & Assert
             Assert.Throws<ArgumentException>(() => repo.GetShakespeareTranslation(description));

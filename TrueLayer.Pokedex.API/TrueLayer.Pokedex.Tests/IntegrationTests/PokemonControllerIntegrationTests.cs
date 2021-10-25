@@ -10,7 +10,7 @@ using TrueLayer.Pokedex.Common.Domain.Services;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
+namespace TrueLayer.Pokedex.Tests.IntegrationTests
 {
     public class PokemonControllerIntegrationTests
     {
@@ -21,10 +21,10 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         [SetUp]
         public void Setup()
         {
-            this.config = ConfigBuilderHelper.InitConfiguration();
+            config = ConfigBuilderHelper.InitConfiguration();
             var myProfile = new AutoMapperProfile();
             var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
-            this.mapper = new Mapper(configuration);
+            mapper = new Mapper(configuration);
 
         }
 
@@ -32,11 +32,11 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenInputVariablesAreValid_WhenTranslationCalled_ObjectWithTranslationReturned()
         {
             //Arrange
-            var translatorApiWrapper = new TranslatorApiWrapper(this.config);
+            var translatorApiWrapper = new TranslatorApiWrapper(config);
             var pokemonDomainService = new PokemonService(translatorApiWrapper);
-            var pokemonApiWrapper = new PokemonApiWrapper(this.config);
+            var pokemonApiWrapper = new PokemonApiWrapper(config);
             var logger = new Mock<ILogger<PokemonController>>();
-            var pokemonController = new PokemonController(pokemonApiWrapper,pokemonDomainService, logger.Object, mapper);
+            var pokemonController = new PokemonController(pokemonApiWrapper, pokemonDomainService, logger.Object, mapper);
 
             //Act
             var pokemonDomainModel = pokemonController.GetTranslated("onix");
@@ -50,9 +50,9 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenNameInputInvalud_WhenTranslationCalled_NotFoundReturned()
         {
             //Arrange
-            var translatorApiWrapper = new TranslatorApiWrapper(this.config);
+            var translatorApiWrapper = new TranslatorApiWrapper(config);
             var pokemonDomainService = new PokemonService(translatorApiWrapper);
-            var pokemonApiWrapper = new PokemonApiWrapper(this.config);
+            var pokemonApiWrapper = new PokemonApiWrapper(config);
             var logger = new Mock<ILogger<PokemonController>>();
             var pokemonController = new PokemonController(pokemonApiWrapper, pokemonDomainService, logger.Object, mapper);
 
@@ -68,9 +68,9 @@ namespace TrueLayer.Pokedex.Tests.Repositories.IntegrationTests
         public void GivenNameInputInvalud_WhenGetCalled_NotFoundReturned()
         {
             //Arrange
-            var translatorApiWrapper = new TranslatorApiWrapper(this.config);
+            var translatorApiWrapper = new TranslatorApiWrapper(config);
             var pokemonDomainService = new PokemonService(translatorApiWrapper);
-            var pokemonApiWrapper = new PokemonApiWrapper(this.config);
+            var pokemonApiWrapper = new PokemonApiWrapper(config);
             var logger = new Mock<ILogger<PokemonController>>();
             var pokemonController = new PokemonController(pokemonApiWrapper, pokemonDomainService, logger.Object, mapper);
 

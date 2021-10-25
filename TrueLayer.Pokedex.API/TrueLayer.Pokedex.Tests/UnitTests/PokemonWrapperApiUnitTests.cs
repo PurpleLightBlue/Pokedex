@@ -4,7 +4,7 @@ using System;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
 
-namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
+namespace TrueLayer.Pokedex.Tests.UnitTests
 {
     public class PokemonWrapperApiUnitTests
     {
@@ -13,7 +13,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         [SetUp]
         public void Setup()
         {
-            this.config = ConfigBuilderHelper.InitConfiguration();
+            config = ConfigBuilderHelper.InitConfiguration();
         }
 
 
@@ -23,7 +23,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
         public void GivenEmptyString_WhenYodaRepoGetTranslationCalled_ExceptionThrown(string name)
         {
             //Arrange
-            var repo = new PokemonApiWrapper(this.config);
+            var repo = new PokemonApiWrapper(config);
 
             //Act & Assert
             Assert.Throws<ArgumentException>(() => repo.GetSinglePokemonSpeciesInformation(name));
