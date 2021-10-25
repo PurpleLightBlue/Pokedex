@@ -46,7 +46,7 @@ namespace TrueLayer.Pokedex.Tests.Repositories.UnitTests
 
 
         [Test]
-        public void GivenAPokemonWithHabitatOfBeachSnfNotLegendary_WhenGetTranslationCalled_ThenShakespeareTranslationReturned()
+        public void GivenAPokemonWithHabitatOfBeachAndIsNotLegendary_WhenGetTranslationCalled_ThenShakespeareTranslationReturned()
         {
             //Arrange
             var mockTranslaionApiWrapper = new Mock<ITranslatorApiWrapper>();

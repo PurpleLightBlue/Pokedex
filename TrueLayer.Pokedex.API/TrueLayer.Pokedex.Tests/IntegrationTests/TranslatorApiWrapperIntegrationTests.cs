@@ -15,7 +15,7 @@ namespace TrueLayer.Pokedex.Tests.IntegrationTests
         }
 
         [Test]
-        public void GivenInputVariablesAreValid_WhenYodaRepoGetTranslationCalled_TranslationJSONReturned()
+        public void GivenInputVariablesAreValid_WhenGetYodaTranslationCalled_TranslationJSONReturned()
         {
             //Arrange
             var repo = new TranslatorApiWrapper(config);
@@ -26,7 +26,7 @@ namespace TrueLayer.Pokedex.Tests.IntegrationTests
         }
 
         [Test]
-        public void GivenInputVariablesAreValid_WhenShakespeareRepoGetTranslationCalled_TranslationJSONReturned()
+        public void GivenInputVariablesAreValid_WhenGetShakespeareTranslationCalled_TranslationJSONReturned()
         {
             //Arrange
             var repo = new TranslatorApiWrapper(config);

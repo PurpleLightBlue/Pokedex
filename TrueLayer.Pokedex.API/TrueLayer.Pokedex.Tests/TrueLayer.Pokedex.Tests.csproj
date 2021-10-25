@@ -35,8 +35,4 @@
     <ProjectReference Include="..\TrueLayer.PokeDex.DAL\TrueLayer.PokeDex.DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\UnitTests\" />
-  </ItemGroup>
-
 </Project>

@@ -15,7 +15,6 @@ namespace TrueLayer.Pokedex.Tests.IntegrationTests
             config = ConfigBuilderHelper.InitConfiguration();
         }
 
-
         [Test]
         public void GivenValidPokemonName_WhenGetSinglePokemonSpeciesInformationCalled_ThenPokemonReturned()
         {

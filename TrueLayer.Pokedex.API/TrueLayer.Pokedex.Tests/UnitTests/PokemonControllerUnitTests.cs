@@ -25,8 +25,10 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
             mapper = new Mapper(configuration);
         }
 
-        [Test]
-        public void GivenNameIsEmptyString_WhenGetCalled_BadRequestReturned()
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase(null)]
+        public void GivenInvalidNameString_WhenGetCalled_BadRequestReturned(string name)
         {
             //Arrange
             var mockPokemonDomainService = new Mock<IPokemonService>();
@@ -35,32 +37,18 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
             var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
 
             //Act
-            var pokemonDomainModel = pokemonController.Get("");
+            var pokemonDomainModel = pokemonController.Get(name);
 
             //Assert
             var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
             Assert.AreEqual(400, statusCodeResult.StatusCode);
         }
 
-        [Test]
-        public void GivenNameIsNull_WhenGetCalled_BadRequestReturned()
-        {
-            //Arrange
-            var mockPokemonDomainService = new Mock<IPokemonService>();
-            var mockPokemonApiWrapper = new Mock<IPokemonApiWrapper>();
-            var mockLogger = new Mock<ILogger<PokemonController>>();
-            var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
-
-            //Act
-            var pokemonDomainModel = pokemonController.Get(null);
-
-            //Assert
-            var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
-            Assert.AreEqual(400, statusCodeResult.StatusCode);
-        }
-
-        [Test]
-        public void GivenNameIsWhiteSpace_WhenGetCalled_BadRequestReturned()
+       
+        [TestCase("")]
+        [TestCase(" ")]
+        [TestCase(null)]
+        public void GiveenInvalidNameString_WhenGetTranslatedCalled_BadRequestReturned(string name)
         {
             //Arrange
             var mockPokemonDomainService = new Mock<IPokemonService>();
@@ -69,58 +57,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
             var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
 
             //Act 
-            var pokemonDomainModel = pokemonController.Get("");
-
-            //Assert
-            var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
-            Assert.AreEqual(400, statusCodeResult.StatusCode);
-        }
-
-        [Test]
-        public void GivenNameIsEmptyString_WhenGetTranslatedCalled_BadRequestReturned()
-        {
-            //Arrange
-            var mockPokemonDomainService = new Mock<IPokemonService>();
-            var mockPokemonApiWrapper = new Mock<IPokemonApiWrapper>();
-            var mockLogger = new Mock<ILogger<PokemonController>>();
-            var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
-
-            //Act 
-            var pokemonDomainModel = pokemonController.Get("");
-
-            //Assert
-            var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
-            Assert.AreEqual(400, statusCodeResult.StatusCode);
-        }
-
-        [Test]
-        public void GivenNameIsNull_WhenGetTranslatedCalled_BadRequestReturned()
-        {
-            //Arrange
-            var mockPokemonDomainService = new Mock<IPokemonService>();
-            var mockPokemonApiWrapper = new Mock<IPokemonApiWrapper>();
-            var mockLogger = new Mock<ILogger<PokemonController>>();
-            var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
-
-            //Act
-            var pokemonDomainModel = pokemonController.GetTranslated(null);
-
-            //Assert
-            var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
-            Assert.AreEqual(400, statusCodeResult.StatusCode);
-        }
-
-        [Test]
-        public void GivenNameIsWhiteSpace_WhenGetTranslationCalled_BadRequestReturned()
-        {
-            //Arrange
-            var mockPokemonDomainService = new Mock<IPokemonService>();
-            var mockPokemonApiWrapper = new Mock<IPokemonApiWrapper>();
-            var mockLogger = new Mock<ILogger<PokemonController>>();
-            var pokemonController = new PokemonController(mockPokemonApiWrapper.Object, mockPokemonDomainService.Object, mockLogger.Object, mapper);
-
-            //Act
-            var pokemonDomainModel = pokemonController.GetTranslated("");
+            var pokemonDomainModel = pokemonController.Get(name);
 
             //Assert
             var statusCodeResult = (IStatusCodeActionResult)pokemonDomainModel;
@@ -147,7 +84,6 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
             var pokemonDomainModel = okResult.Value as PokemonViewModel;
             Assert.AreEqual("This is translated text", pokemonDomainModel.Description);
         }
-
 
         [Test]
         public void GivenNameIsValid_WhenGetCalled_ThenPokemonReturned()

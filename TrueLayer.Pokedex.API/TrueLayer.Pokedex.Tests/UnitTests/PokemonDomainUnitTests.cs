@@ -50,7 +50,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
         [TestCase("")]
         [TestCase(" ")]
         [TestCase(null)]
-        public void GivenHabitaUpdatetIsInvalid_WhenUpdateHabitatCalled_ThenExceptionThrown(string habitatValue)
+        public void GivenHabitatUpdateIsInvalid_WhenUpdateHabitatCalled_ThenExceptionThrown(string habitatValue)
         {
             //Arrange
             var pokemon = new Pokemon("Pikatu", "The best one", "Fields", true);
@@ -61,7 +61,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
         [TestCase("")]
         [TestCase(" ")]
         [TestCase(null)]
-        public void GivenDescriptionUpdatetIsInvalid_WhenUpdateDescriptionCalled_ThenExceptionThrown(string descriptionValue)
+        public void GivenDescriptionUpdateIsInvalid_WhenUpdateDescriptionCalled_ThenExceptionThrown(string descriptionValue)
         {
             //Arrange
             var pokemon = new Pokemon("Pikatu", "The best one", "Fields", true);
@@ -70,7 +70,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
         }
 
         [Test]
-        public void GivenHabitatUpdatetIsValid_WheUpdateHabitatCalled_ThenUpdateIsReturned()
+        public void GivenHabitatUpdateIsValid_WheUpdateHabitatCalled_ThenUpdateIsReturned()
         {
             //Arrange
             var pokemon = new Pokemon("Pikatu", "The best one", "Fields", true);
@@ -81,7 +81,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
         }
 
         [Test]
-        public void GivenDescriptionUpdatetIsValid_WheUpdateDescriptionCalled_ThenUpdateIsReturned()
+        public void GivenDescriptionUpdateIsValid_WheUpdateDescriptionCalled_ThenUpdateIsReturned()
         {
             //Arrange
             var pokemon = new Pokemon("Pikatu", "The best one", "Fields", true);
@@ -92,7 +92,7 @@ namespace TrueLayer.Pokedex.Tests.UnitTests
         }
 
         [Test]
-        public void GivenIsLegendaryUpdateIsValid_WheUpdateLegendaryStatusCalled_ThenUpdateIsReturned()
+        public void GivenIsLegendaryUpdateIsValid_WhenUpdateLegendaryStatusCalled_ThenUpdateIsReturned()
         {
             //Arrange
             var pokemon = new Pokemon("Pikatu", "The best one", "Fields", true);

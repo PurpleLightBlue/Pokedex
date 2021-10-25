@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -6,6 +7,7 @@ using Moq;
 using NUnit.Framework;
 using TrueLayer.Pokedex.API;
 using TrueLayer.Pokedex.API.Controllers;
+using TrueLayer.Pokedex.API.ViewModels;
 using TrueLayer.Pokedex.Common.Domain.Services;
 using TrueLayer.Pokedex.Tests.Utilities;
 using TrueLayer.PokeDex.DAL.ApiWrappers;
@@ -39,15 +41,17 @@ namespace TrueLayer.Pokedex.Tests.IntegrationTests
             var pokemonController = new PokemonController(pokemonApiWrapper, pokemonDomainService, logger.Object, mapper);
 
             //Act
-            var pokemonDomainModel = pokemonController.GetTranslated("onix");
+            var actionResult = pokemonController.GetTranslated("onix");
 
             //Assert
-            Assert.IsNotEmpty(pokemonDomainModel.ToString());
+            var okResult = actionResult as OkObjectResult;
+            var viewModel = okResult.Value as PokemonViewModel;
+            Assert.AreEqual("onix", viewModel.Name);
         }
 
 
         [Test]
-        public void GivenNameInputInvalud_WhenTranslationCalled_NotFoundReturned()
+        public void GivenNameInputInvalid_WhenGetTranslationCalled_NotFoundReturned()
         {
             //Arrange
             var translatorApiWrapper = new TranslatorApiWrapper(config);
@@ -65,7 +69,7 @@ namespace TrueLayer.Pokedex.Tests.IntegrationTests
         }
 
         [Test]
-        public void GivenNameInputInvalud_WhenGetCalled_NotFoundReturned()
+        public void GivenNameInputInvalid_WhenGetCalled_NotFoundReturned()
         {
             //Arrange
             var translatorApiWrapper = new TranslatorApiWrapper(config);
