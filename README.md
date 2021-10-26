@@ -4,7 +4,7 @@ The Truelayer Pokedex is a .net 5 based web API. It has an endpoint for use in g
 
 ## Installation
 
-Clone this repository to your local machine. Then you can either open and build the project using visual studio, or navigate to the <install location>\TrueLayerPokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API and run the following dotnet build command
+Clone this repository to your local machine. Then you can either open and build the project using visual studio, or navigate to the <install location>\Pokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API and run the following dotnet build command
 
 ```powershell
 dotnet build --configuration Release
