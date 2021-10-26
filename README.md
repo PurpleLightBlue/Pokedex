@@ -9,11 +9,11 @@ Clone this repository to your local machine. Then you can either open and build 
 ```powershell
 dotnet build --configuration Release
 ```
-This should produce a number of outputs, including the following <install location>\TrueLayerPokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API\bin\Release\net5.0\TrueLayer.Pokedex.API.dll
+This should produce a number of outputs, including the following <install location>\Pokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API\bin\Release\net5.0\TrueLayer.Pokedex.API.dll
 
 ## Usage
 
-To then start the API navigate to <install location>\TrueLayerPokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API\bin\Release\net5.0\ and run the following dotnet command 
+To then start the API navigate to <install location>\Pokedex\TrueLayer.Pokedex.API\TrueLayer.Pokedex.API\bin\Release\net5.0\ and run the following dotnet command 
 
 ```powershell
 dotnet TrueLayer.Pokedex.API.dll
